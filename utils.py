@@ -5,6 +5,7 @@ from __future__ import division
 import math
 import random
 import scipy.misc
+import imageio
 import numpy as np
 import os
 from skimage.transform import resize
@@ -16,7 +17,7 @@ def save_images(images, size, image_path):
     return imsave(inverse_transform(images), size, image_path)
 
 def imread(path):
-    return scipy.misc.imread(path).astype(np.float)
+    return image.imread(path).astype(np.float)
 
 def merge_images(images, size):
     return inverse_transform(images)
@@ -43,7 +44,7 @@ def inverse_transform(images):
     return (images+1.)/2.
     
 def get_aligned_image(image_path, image_size=(160,160), is_crop=True):
-    img = imread(image_path)
+    img = imageio.imread(image_path)
     return crop_and_resize(img, image_size, crop=is_crop)
 
 def crop_and_resize(image, image_shape, resize_height=64, resize_width=64, crop=True):
