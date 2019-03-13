@@ -33,8 +33,6 @@ def merge(images, size):
 
 def imsave(images, size, path):
     img = merge(images, size)
-    if not os.path.exists(path):
-        os.mkdir(path)
     return scipy.misc.imsave(path, (255*img).astype(np.uint8))
 
 def transform(image, npx=64, is_crop=True):
