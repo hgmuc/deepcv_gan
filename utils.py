@@ -58,7 +58,7 @@ def crop_and_resize(image, image_shape, resize_height=64, resize_width=64, crop=
     else:
         cropped_image = resize(image, [resize_height, resize_width])
         
-    if np.max(cropped_images <= 1):
+    if np.max(cropped_image <= 1):
         return np.array(cropped_image)/0.5 - 1.
     else:   
         return np.array(cropped_image)/127.5 - 1.
